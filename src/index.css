@@ -8,51 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* OLMS Library Palette
+       Primary navy #12324A, Secondary teal #2F6F68, Accent amber #C48F1D
+       Background #F6F8FB, Surface #FFFFFF, Border #D9E2EC
+       Text #102A43, Muted #52606D
+       Success #2F855A, Warning #B7791F, Danger #C53030 */
+    --background: 213 30% 97%;
+    --foreground: 210 47% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 47% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 47% 17%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 207 60% 18%;
+    --primary-foreground: 213 30% 97%;
+    --primary-glow: 207 50% 28%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 175 41% 31%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 213 30% 94%;
+    --muted-foreground: 210 14% 38%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 39 74% 44%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 145 47% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 71% 42%;
+    --warning-foreground: 0 0% 100%;
+    --danger: 0 60% 48%;
+    --danger-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 60% 48%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 210 33% 89%;
+    --input: 210 33% 89%;
+    --ring: 207 60% 28%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.625rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --shadow-card: 0 1px 2px 0 hsl(207 60% 18% / 0.04), 0 4px 12px -2px hsl(207 60% 18% / 0.06);
+    --shadow-elevated: 0 8px 24px -8px hsl(207 60% 18% / 0.18);
+    --gradient-hero: linear-gradient(135deg, hsl(207 60% 18%) 0%, hsl(175 41% 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(39 74% 44%) 0%, hsl(36 71% 50%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 207 60% 14%;
+    --sidebar-foreground: 213 30% 88%;
+    --sidebar-primary: 39 74% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 207 50% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 207 40% 22%;
+    --sidebar-ring: 39 74% 44%;
   }
 
   .dark {
@@ -100,6 +111,17 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-card)];
   }
 }
